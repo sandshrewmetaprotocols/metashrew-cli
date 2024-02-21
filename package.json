@@ -1,0 +1,8 @@
+{
+  "name": "metashrew-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "proto",
+  "license": "MIT",
+  "private": true
+}
