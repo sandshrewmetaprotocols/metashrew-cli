@@ -1,8 +1,24 @@
 {
   "name": "metashrew-cli",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "proto",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "author": "inquiries@sandshrew.io",
   "license": "MIT",
-  "private": true
+  "private": false,
+  "scripts": {
+    "build": "tsc",
+    "start": "node lib/index.js"
+  },
+  "bin": {
+    "metashrew-cli": "bin/cli.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "path": "^0.12.7",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "yargs": "^17.7.2"
+  }
 }
