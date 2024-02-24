@@ -13,16 +13,15 @@
     "test": "ts-mocha --timeout 0 ./tests/**.spec.ts"
   },
   "devDependencies": {
-    "typescript": "^5.3.3",
     "@types/node": "^20.10.6",
     "assemblyscript": "^0.27.22",
     "assemblyscript-prettier": "^3.0.1",
+    "metashrew-test": "https://github.com/sandshrewmetaprotocols/metashrew-test",
+    "metashrew-as": "https://github.com/sandshrewmetaprotocols/metashrew-as",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.1.1",
-    "rplp": "^3.0.0"
+    "rlp": "^3.0.0",
+    "typescript": "^5.3.3"
   },
-  "dependencies": {
-    "metashrew-as": "metashrew-as",
-    "metashrew-test": "metashrew-test"
-  }
+  "devDependencies": {}
 }
