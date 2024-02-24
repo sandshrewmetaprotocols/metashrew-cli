@@ -26,6 +26,7 @@ export function runCLI() {
       (argv) => {
         (async () => {
           const destPath = path.join(process.cwd(), argv.name);
+	  logger.info('creating new metaprotocol in .' + path.sep + argv.name);
           await copy(
             path.join(__dirname, "..", "template"),
             path.join(process.cwd(), argv.name),
@@ -38,7 +39,7 @@ export function runCLI() {
 	  await fs.writeFile(path.join(process.cwd(), 'package.json'), JSON.stringify(packageJson, null, 2));
 	  logger.info('installing dependencies');
 	  child_process.spawnSync('yarn', [], { stdio: 'inherit' });
-          logger.info("created " + argv.name + path.sep);
+          logger.info("created ." + path.sep +  argv.name + path.sep);
         })().catch((err) => logger.error(err));
       },
     )

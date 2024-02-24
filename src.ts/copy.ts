@@ -60,7 +60,7 @@ export default function copyRecursive(src, dest, options?, callback?) {
         log("Filtering source paths…");
       }
       var relativePaths = filePaths.map(function (filePath) {
-        return '.' + path.sep + path.relative(src, filePath);
+        return path.relative(src, filePath);
       });
       var filteredPaths = getFilteredPaths(relativePaths, options.filter, {
         dot: options.dot,
@@ -268,7 +268,7 @@ function copy(srcPath, destPath, hasFinished, emitEvent, options) {
       throw copyError;
     })
     .then(function (result) {
-      logger.star(path.relative(process.cwd(), destPath));
+      logger.star('.' + path.sep + path.relative(process.cwd(), destPath));
       return result;
     });
 }
