@@ -1,1 +1,1 @@
-export declare function runCLI(): void;
+export * from "./cli";

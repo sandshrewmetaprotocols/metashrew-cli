@@ -2,9 +2,10 @@
 import path from "path";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import fs from "fs";
+import fs from "fs-extra";
 import { getLogger } from "./logger";
 import copy from "./copy";
+import child_process from "child_process";
 
 const logger = getLogger();
 
@@ -24,11 +25,20 @@ export function runCLI() {
       },
       (argv) => {
         (async () => {
+          const destPath = path.join(process.cwd(), argv.name);
           await copy(
             path.join(__dirname, "..", "template"),
             path.join(process.cwd(), argv.name),
           );
-          logger.info("created  " + argv.name + path.sep);
+	  process.chdir(destPath);
+	  const packageJson = JSON.parse(await fs.readFile(path.join(process.cwd(), 'package.json'), 'utf8'));
+	  packageJson.name = argv.name
+	  packageJson.description = argv.name;
+	  logger.info('writing package.json');
+	  await fs.writeFile(path.join(process.cwd(), 'package.json'), JSON.stringify(packageJson, null, 2));
+	  logger.info('installing dependencies');
+	  child_process.spawnSync('yarn', [], { stdio: 'inherit' });
+          logger.info("created " + argv.name + path.sep);
         })().catch((err) => logger.error(err));
       },
     )
