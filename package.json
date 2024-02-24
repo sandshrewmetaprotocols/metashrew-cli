@@ -6,19 +6,29 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "prettier": "prettier  --write ./src.ts/**/*.ts",
     "build": "tsc",
-    "start": "node lib/index.js"
+    "start": "cross-env node lib/index.js"
   },
   "bin": {
     "metashrew-cli": "bin/cli.js"
   },
   "devDependencies": {
     "@types/node": "^20.11.19",
+    "cross-env": "^7.0.3",
     "path": "^0.12.7",
+    "prettier": "^3.2.5",
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "errno": "^1.0.0",
+    "fs-extra": "^11.2.0",
     "lodash": "^4.17.21",
+    "maximatch": "^0.1.0",
+    "mkdirp": "^3.0.1",
+    "rimraf": "^5.0.5",
+    "setimmediate": "^1.0.5",
+    "winston": "^3.11.0",
     "yargs": "^17.7.2"
   }
 }

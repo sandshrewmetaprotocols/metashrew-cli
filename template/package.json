@@ -1,7 +1,5 @@
 {
-  "name": "metashrew-protocol-template",
   "version": "0.1.0",
-  "descriptpion": "A template for creating metashrew protocols",
   "main": "lib/index.js",
   "scripts": {
     "asbuild:debug": "asc assembly/index.ts --target debug --enable threads --config asconfig.json",
