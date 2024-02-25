@@ -1,9 +1,11 @@
 import { Box } from "metashrew-as/assembly/utils/box"
-import { input } from "metashrew-as/assembly/indexer/index";
+import { input, get, set, Index } from "metashrew-as/assembly/indexer/index";
 import { parsePrimitive } from "metashrew-as/assembly/utils/utils";
 import { Block } from "metashrew-as/assembly/blockdata/block";
+import { Transaction, Input, Output } from "metashrew-as/assembly/blockdata/transaction";
 
 import { console } from "metashrew-as/assembly/utils/logging";
+import { toRLP, RLPItem } from "metashrew-as/assembly/utils/rlp";
 
 export function _start(): void {
   const data = input();
